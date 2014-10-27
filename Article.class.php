@@ -1,12 +1,6 @@
 <?php
 /* Déclarer une classe */
 
-/*
- * checks information in Setters
- * Creates construct function
- * Creates hydrate function
- * 
-*/
 #doc
 #   classname:  Article
 #   scope:      PUBLIC

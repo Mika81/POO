@@ -1,13 +1,9 @@
 <?php
 require_once 'bdd.php';
 require_once 'Article.class.php';
+require_once 'ArticleManager.class.php';
 
-/* Simulation de variable $_POST */
-$post = array(
-    'title' => 'Mon titre',
-    'id_user' => '3',
-    'message' => 'mon nouvel article...',
-);
+$manager = new ArticleManager($DB);
+$article = $manager-> getArticle(2);
 
-$article2 = new Article($post);
-print $article2-> getTitle();
+debug($article);

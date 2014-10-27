@@ -5,4 +5,12 @@ try{
 } catch (Exception $e) {
     die('Erreur : '. $e->getMessage());
 }
-?>
+
+
+
+/* Création fonction debug */
+function debug($arg){
+    print"<pre>";
+        print_r($arg);
+    print"</pre>";
+}
