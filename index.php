@@ -1,4 +1,6 @@
 <?php
+require_once 'bdd.php';
+require_once 'Article.class.php';
 
 /* Simulation de variable $_POST */
 $post = array(
