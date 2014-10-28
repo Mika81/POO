@@ -38,7 +38,32 @@ class user{
     public function getRole() { return $this->_role; }
     
     #   setters
-    public function setId_user($application){
-        $this->_application = htmlspecialchars($application);
-    }
+	public function setId_user($id) {
+		$id = (int) $id;
+		if($id >= 1 && strlen($id) <= 4) {
+			$this->_id_user = $id;
+		}
+	}
+		
+	public function setPseudo($pseudo) {
+		if(strlen($pseudo) <= 255 && is_string($pseudo)) {
+			$this->_pseudo = $pseudo;
+		}
+	}
+		
+	public function setPwd($pwd) {
+		$this->_pwd = hash('sha512', $pwd);
+	}
+		
+	public function setEmail($email) {
+		if(strlen($email) <= 25 && is_string($email)) {
+			$this->_email = $email;
+		}
+	}
+		
+	public function setRole($role) {
+		if(strlen($role) <= 255 && is_string($role)) {
+			$this->_role = $role;
+		}
+	}
 }

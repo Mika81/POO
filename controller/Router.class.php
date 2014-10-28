@@ -1,5 +1,12 @@
 <?php
+##  controller/Router.class.php
 
+  #doc
+  #  classname:  Router
+  #  scope:    PUBLIC
+  #
+  #/doc
+  
 class Router{
 
     #   constructor
@@ -53,8 +60,8 @@ class Router{
 
      public function setPage($page){
          $page = (int) $page;
-         if($page >= 1 && strnlen($page) <= 4){
-             $this->_id = htmlspecialchars($page);
+         if($page >= 1 && strnlen($page) <= 2){
+             $this->_page = htmlspecialchars($page);
          }
      }
 }

@@ -55,13 +55,13 @@ class ArticleManager{
                 . 'SET title=:title, id_user=:id_user, date=NOW(), image=:image, '
                 . 'message=:message, published=:published');
         $ADD_ARTICLE->bindValue(':title', $article->getTitle());
-	$ADD_ARTICLE->bindValue(':id_user', $article->getId_user());
-	$ADD_ARTICLE->bindValue(':image', $article->getImage());
-	$ADD_ARTICLE->bindValue(':message', $article->getMessage());
-	$ADD_ARTICLE->bindValue(':message', $article->getMessage());
-        $ADD_ARTICLE->bindValue(':published', (int) $article->getPublished() );
-	$ADD_ARTICLE->execute();
-	$ADD_ARTICLE->closeCursor();
+		$ADD_ARTICLE->bindValue(':id_user', $article->getId_user());
+		$ADD_ARTICLE->bindValue(':image', $article->getImage());
+		$ADD_ARTICLE->bindValue(':message', $article->getMessage());
+		$ADD_ARTICLE->bindValue(':message', $article->getMessage());
+		$ADD_ARTICLE->bindValue(':published', (int) $article->getPublished());
+		$ADD_ARTICLE->execute();
+		$ADD_ARTICLE->closeCursor();
 	}
     
     public function updateArticle(Article $article) {
@@ -69,14 +69,14 @@ class ArticleManager{
                 . 'SET title=22, id_user=:id_user, image=:image, message=:message, '
                 . 'published=:published '
                 . 'WHERE id_article=:id_article');
-	$UP_ARTICLE->bindValue(':id_article', $article->getId_article());
-	// $UP_ARTICLE->bindValue(':title', $article->getTitle());
-	$UP_ARTICLE->bindValue(':id_user', $article->getId_user());
-	$UP_ARTICLE->bindValue(':image', $article->getImage());
-	$UP_ARTICLE->bindValue(':message', $article->getMessage());
-	$UP_ARTICLE->bindValue(':published', (int) $article->getPublished());
-	$UP_ARTICLE->execute();
-	$UP_ARTICLE->closeCursor();
+		$UP_ARTICLE->bindValue(':id_article', $article->getId_article());
+		// $UP_ARTICLE->bindValue(':title', $article->getTitle());
+		$UP_ARTICLE->bindValue(':id_user', $article->getId_user());
+		$UP_ARTICLE->bindValue(':image', $article->getImage());
+		$UP_ARTICLE->bindValue(':message', $article->getMessage());
+		$UP_ARTICLE->bindValue(':published', (int) $article->getPublished());
+		$UP_ARTICLE->execute();
+		$UP_ARTICLE->closeCursor();
 	}
     
     public function deleteArticle($id){
@@ -86,7 +86,7 @@ class ArticleManager{
                 . 'WHERE id_article=:id_article');
         $DEL_ARTICLE->bindValue(':id_article', $id);
         $DEL_ARTICLE->execute();
-	$DEL_ARTICLE->closeCursor();
+		$DEL_ARTICLE->closeCursor();
         print "Article supprimé";
     }
 }

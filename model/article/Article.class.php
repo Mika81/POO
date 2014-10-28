@@ -1,5 +1,4 @@
 <?php
-/* Déclarer une classe */
 
 #doc
 #   classname:  Article
@@ -57,14 +56,25 @@ class Article{
         }
     }
     
-    public function setId_user($value) { 
-        
-        $this-> _id_user = $value;
-        
+    public function setId_user($value)
+    {
+      $value = (int) $value;
+      if(strlen($value) < 6 && $value > 0) {
+        $this->_id_user = $value;
+      }
     }
     
-    public function setDate($value) { $this-> _date = $value; }
-    public function setImage($value) { $this-> _image = $value; }
+    public function setDate($date)
+    {
+      $this->_date = $date;
+    }
+    
+    public function setImage($image)
+    {
+			if(strlen($image) <= 20 && is_string($image)) {
+        $this->_image = $image;
+      }
+    }
     
     public function setMessage($value) { 
         if(is_string($value)){
