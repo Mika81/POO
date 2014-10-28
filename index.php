@@ -1,12 +1,11 @@
 <?php
-require_once 'bdd.php';
-require_once 'Article.class.php';
-require_once 'ArticleManager.class.php';
+##  index.php
 
-$manager = new ArticleManager($DB);
-$article = $manager-> getArticle(1);
-// $manager-> addArticle($article);
-$manager-> updateArticle($article);
- 
-// $article = $manager-> getAllArticles();
-debug($article);
+session_start();
+require_once('framework_const.php');
+require_once BASE_PATH.'controller/Controller.class.php';
+$controller = new Controller;
+$app_controller = $controller->getAppClass();
+# include_once BASE_PATH.'view/html.tpl.php';
+new $app_controller;
+# include_once BASE_PATH.'view/end_html.tpl.php';
