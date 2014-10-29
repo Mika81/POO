@@ -53,14 +53,14 @@ class Router{
 
     public function setId($id){
         $id = (int) $id;
-        if($id >= 1 && strnlen($id) <= 4){
+        if($id >= 1 && strlen($id) <= 4){
             $this->_id = htmlspecialchars($id);
         }
      }
 
      public function setPage($page){
          $page = (int) $page;
-         if($page >= 1 && strnlen($page) <= 2){
+         if($page >= 1 && strlen($page) <= 2){
              $this->_page = htmlspecialchars($page);
          }
      }

@@ -16,7 +16,8 @@ class Article{
     private $_published;
     private $_id_article;
     
-    /* La méthode constructeur se lance automatiquement (méthode magique) */
+    /* La méthode constructeur se lance automatiquement (méthode magique) 
+        Permet de faire appel à des fonctions dans un objet et/ou de l'hydrater  */
     public function __construct(array $data) {
         $this->hydrate($data);
     }

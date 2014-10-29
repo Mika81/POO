@@ -11,6 +11,9 @@
     
     #  Constructor
     function __construct() {
+      #    Please implement the mandatory following code in each of your Application's Controller
+      /* On appel le constructeur parent pour implémenter l'héritage du parent
+       *  dans la class enfant */  
       parent::__construct();
       $action = $this->getAppMethod();
       $this->$action(array('id' => $this->getRouter()->getId(), 'page' => $this->getRouter()->getPage()));

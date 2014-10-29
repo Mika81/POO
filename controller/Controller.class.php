@@ -2,8 +2,8 @@
 ## controller/Controller.class.php
 
 require_once BASE_PATH.'controller/Router.class.php';
-// require_once BASE_PATH.'controller/Database.class.php';
-// require_once BASE_PATH.'controller/article/ArticleController.class.php';
+require_once BASE_PATH.'controller/Database.class.php';
+require_once BASE_PATH.'controller/article/ArticleController.class.php';
 // require_once BASE_PATH.'controller/user/UserController.class.php';
 
 #doc
@@ -58,7 +58,7 @@ class Controller{
     
     public function setAppMethod($class, $method) { 
         $method = $method.'Index';
-        if(method-exists($class, $method)){
+        if(method_exists($class, $method)){
             $this->_appMethod = $method;  
         }else{
             print 'La méthode "'. $method .'" n\'existe pas dans la classe "'. $class .'"';
