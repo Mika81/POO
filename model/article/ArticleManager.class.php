@@ -50,7 +50,7 @@ class ArticleManager{
         $LIST->closeCursor();
     }
     
-    public function addArticle(Article $article) {
+    public function createArticle(Article $article) {
         $ADD_ARTICLE = $this->_db->prepare('INSERT INTO article '
                 . 'SET title=:title, id_user=:id_user, date=NOW(), image=:image, '
                 . 'message=:message, published=:published');
