@@ -1,0 +1,58 @@
+.dropdown-toggle{
+    transition: all 0.3s;
+}
+#logo{
+    float:left;
+}
+.clear{
+    clear:left;
+}
+form{
+    width:100px;
+    min-height: 43px;
+    border: 1px solid darkgreen;
+}
+label{
+    margin-left: 5px;
+    margin-right: 20px;
+}
+#form2{
+    padding:10px;
+    width:100%;
+    min-height: 500px;
+    border:1px dotted lightblue;
+    border-radius: 4px;
+    background-color: grey;
+}
+#form3{
+    margin:5%;
+    padding:10px;
+    border:1px dotted lightblue;
+    border-radius: 4px;
+    background-color: grey;
+    min-width: 40%;
+    min-height: 200px;
+    float: left;
+}
+.green{
+    background-color: lightseagreen !important;
+}
+.form-control{
+    background-color:lightsteelblue;
+}
+
+figure{
+    width: 20%;
+    float: left;
+    position: relative;
+}
+.well{
+    width: 80%;
+    float: left;
+    position: relative;
+    border-left:1px solid #375a7f;
+}
+.modif{
+    width: 20px;
+    float: right;
+}

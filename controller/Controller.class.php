@@ -23,7 +23,7 @@ class Controller{
             'user_name' => 'root', 
             'user_pwd' => 'root'));
         $this->setAppClass($this->getRouter()->getApplication());
-        $this->setAppMethod($this->_appclass, $this->getRouter()->getAction());
+        $this->setAppMethod($this->_appClass, $this->getRouter()->getAction());
         $this->setAppManager($this->_dbObject);
     }
 

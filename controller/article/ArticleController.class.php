@@ -44,18 +44,19 @@
     }
     
     public function createIndex() {
-      if(empty($_POST)) {
-        $article = new Article($_POST);
-        $form_type = $this->getRouter()->getAction();
-        $published_value = NULL;
+//        print "bibi";
+//      if(empty($_POST)) {
+//        $article = new Article($_POST);
+//        $form_type = $this->getRouter()->getAction();
+//        $published_value = NULL;
         include_once(BASE_PATH.'view/article/form.tpl.php');
-      }
-      else {
-        $article = new Article($_POST);
-        $article->setId_user($_SESSION['id']);
-        $this->getAppManager()->createArticle($article);
-        header('Location: '.BASE_URL);
-      }
+//      }
+//      else {
+//        $article = new Article($_POST);
+//        $article->setId_user($_SESSION['id']);
+//        $this->getAppManager()->createArticle($article);
+//        header('Location: '.BASE_URL);
+//      }
     }
     
     public function editIndex($param) {
