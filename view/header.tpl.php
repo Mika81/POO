@@ -17,7 +17,7 @@
             <input type="text" name="search" class="form-control col-lg-8" placeholder="Search"/>
         </form>
         <!-- End of Search form -->
-        <a href='deconnexion.php' class='pull-right'>Se déconnecter</a>
+        <a href='deconnexion.php' class='pull-right'>Se déconnecter</a><br/>
         <a href='connexion.php' class='pull-right'>Se connecter</a>
     </nav>
 </header>

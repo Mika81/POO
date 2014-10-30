@@ -29,5 +29,8 @@
     </div>
     <div class="form-group">
         <input type="submit" name="submit" value="Valider" class="btn btn-primary btn-lg">
+    <?php if($form_type == 'delete') : ?>
+        <a href='?delete=<?php echo $article->getId_article() ?>' class="btn btn-danger btn-lg pull-right">Supprimer cette fiche</a>
     </div>
+    <?php endif; ?>
 </form>

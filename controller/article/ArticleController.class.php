@@ -52,6 +52,8 @@ require_once BASE_PATH.'model/article/Article.class.php';
         $article = new Article($_POST);
         $form_type = $this->getRouter()->getAction();
         $published_value = NULL;
+        $submit_class = 'primary';
+        $submit_value = 'modifier';
         include_once(BASE_PATH.'view/article/form.tpl.php');
       }else{
         $article = new Article($_POST);
@@ -72,10 +74,10 @@ require_once BASE_PATH.'model/article/Article.class.php';
 //        $article = $article_array['article'];
         $published_value = $article->getPublished() ? 'checked' : NULL;
         $form_type = $this->getRouter()->getAction();
-        $submit_value = 'Modifier';
+        $submit_class = 'primary';
+        $submit_value = 'modifier';
         include_once(BASE_PATH.'view/article/form.tpl.php');
-      }
-      else {
+      }else{
 //        $_POST['published'] = isset($_POST['published']) ? $_POST['published'] : FALSE;
         $article = new Article($_POST);
         $article->setId_article($param['id']);
@@ -86,12 +88,13 @@ require_once BASE_PATH.'model/article/Article.class.php';
     
     public function deleteIndex($param) {
       if(empty($_POST)) {
-        $article_array = $this->getAppManager()->getArticle($param['id']);
-        $article = $article_array['article'];
+        $article = $this->getAppManager()->getArticle($param['id']);
+//        $article = $article_array['article'];
         $form_type = $this->getRouter()->getAction();
+        $submit_class = 'danger';
+        $submit_value = 'delete';
         include(BASE_PATH.'view/article/form.tpl.php');
-      }
-      else {
+      }else{
         $this->getAppManager()->deleteArticle($param['id']);
         header('Location: '.BASE_PATH);
       }
