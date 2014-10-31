@@ -1,8 +1,7 @@
 <?php
 ##  controller/article/ArticleController.class.php
 
-# On importe la classe de l'application Article
-require_once BASE_PATH.'model/article/Article.class.php';
+  require_once BASE_PATH.'model/article/Article.class.php';
 
   #doc
   #  classname:  ControllerArticle
@@ -14,14 +13,14 @@ require_once BASE_PATH.'model/article/Article.class.php';
     
     #  Constructor
     function __construct() {
-      #    Please implement the mandatory following code in each of your Application's Controller
-      /* On appel le constructeur parent pour implémenter l'héritage du parent
-       *  dans la class enfant */  
+      ##  Please implement the mandatory following code in each of your Application's Controller.
       parent::__construct();
       $action = $this->getAppMethod();
       $this->$action(array('id' => $this->getRouter()->getId(), 'page' => $this->getRouter()->getPage()));
+      
+      ## Your code ...
+      
     }
-    
     
     public function voirIndex($param) {
       $article_array = $this->getAppManager()->getArticle($param['id']);
@@ -31,8 +30,8 @@ require_once BASE_PATH.'model/article/Article.class.php';
     }
     
     public function listIndex($param) {
-      $articles = $this->getAppManager()->getAllArticles($param['page']);
       $page = $param['page'];
+      $articles = $this->getAppManager()->getAllArticles($page);
       if(!empty($articles)) {
         foreach($articles as $article_array) {
           $article = $article_array['article'];
@@ -47,38 +46,34 @@ require_once BASE_PATH.'model/article/Article.class.php';
     }
     
     public function createIndex() {
-//        print "bibi";
       if(empty($_POST)) {
         $article = new Article($_POST);
         $form_type = $this->getRouter()->getAction();
         $published_value = NULL;
         $submit_class = 'primary';
-        $submit_value = 'modifier';
+        $submit_value = 'Ajouter';
         include_once(BASE_PATH.'view/article/form.tpl.php');
-      }else{
+      }
+      else
+      {
         $article = new Article($_POST);
-        # On donne une valeur à l'id user
-//        $article->setId_user($_SESSION['id']);
+        print_r($article);
         $article->setId_user(1);
-        # On va chercher la méthode 'createArticle' 
         $this->getAppManager()->createArticle($article);
-//        header('Location: '.BASE_URL);
-          debug($article);
-          debug($_POST);
+        header('Location: '.BASE_URL);
       }
     }
     
     public function editIndex($param) {
       if(empty($_POST)) {
         $article = $this->getAppManager()->getArticle($param['id']);
-//        $article = $article_array['article'];
         $published_value = $article->getPublished() ? 'checked' : NULL;
         $form_type = $this->getRouter()->getAction();
         $submit_class = 'primary';
-        $submit_value = 'modifier';
+        $submit_value = 'Modifier';
         include_once(BASE_PATH.'view/article/form.tpl.php');
-      }else{
-//        $_POST['published'] = isset($_POST['published']) ? $_POST['published'] : FALSE;
+      }
+      else {
         $article = new Article($_POST);
         $article->setId_article($param['id']);
         $this->getAppManager()->editArticle($article);
@@ -89,29 +84,28 @@ require_once BASE_PATH.'model/article/Article.class.php';
     public function deleteIndex($param) {
       if(empty($_POST)) {
         $article = $this->getAppManager()->getArticle($param['id']);
-//        $article = $article_array['article'];
         $form_type = $this->getRouter()->getAction();
         $submit_class = 'danger';
-        $submit_value = 'delete';
+        $submit_value = 'Supprimer';
         include(BASE_PATH.'view/article/form.tpl.php');
-      }else{
+      }
+      else {
         $this->getAppManager()->deleteArticle($param['id']);
         header('Location: '.BASE_PATH);
       }
     }
     
-    public function searchIndex($param) {
-      if(!empty($_POST)) {
-        $search = $_POST['search'];
-        $articles = $this->getAppManager()->searchArticles($search);
-        if(!empty($articles)) {
-          foreach($articles as $article_array) {
-            $article = $article_array['article'];
-            $user = $article_array['user'];
-            include(BASE_PATH.'view/article/article-teaser.tpl.php');
+    public function searchIndex($param){
+        if(!empty($_POST)){
+          $search = $_POST['search'];
+          $articles = $this->getAppManager()->searchArticles($search);
+          if(!empty($articles)){
+              foreach($articles as $article_array){
+                  $article = $article_array['article'];
+                  $user = $article_array['user'];
+                  include(BASE_PATH.'view/article/article-teaser.tpl.php');
+              }
           }
         }
-      }
-    }
-    
+    }   
   }

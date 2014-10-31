@@ -3,36 +3,15 @@
 }
 #logo{
     float:left;
+    width:50px;
+    height:50px;
 }
 .clear{
     clear:left;
 }
-form{
-    width:100px;
-    min-height: 43px;
-    border: 1px solid darkgreen;
-}
 label{
     margin-left: 5px;
     margin-right: 20px;
-}
-#form2{
-    padding:10px;
-    width:100%;
-    min-height: 500px;
-    border:1px dotted lightblue;
-    border-radius: 4px;
-    background-color: grey;
-}
-#form3{
-    margin:5%;
-    padding:10px;
-    border:1px dotted lightblue;
-    border-radius: 4px;
-    background-color: grey;
-    min-width: 40%;
-    min-height: 200px;
-    float: left;
 }
 .green{
     background-color: lightseagreen !important;
@@ -46,13 +25,34 @@ figure{
     float: left;
     position: relative;
 }
-.well{
-    width: 80%;
-    float: left;
-    position: relative;
-    border-left:1px solid #375a7f;
-}
 .modif{
     width: 20px;
     float: right;
+}
+ul{
+    list-style-type: none;
+}
+.connect{
+    border-radius: 5px;
+    padding:10px;
+    background-color: #333333;
+    border:1px solid grey;
+}
+.connect input{
+    margin-bottom: 5px;
+}
+.connect .form-group{
+    margin-bottom: 0px;
+}
+.connect .alert{
+    margin-bottom: 0px;
+}
+.connect .alert-info{
+    margin-bottom: 0px;
+}
+.listUsers{
+    margin-top:50px;
+}
+#main-header{
+    margin-bottom:50px;
 }
