@@ -11,4 +11,5 @@
 			<meta charset="utf-8"/>
 		</head>
 		<body>
+      <div id="page" class="container">
         <?php include_once(BASE_PATH.'view/header.tpl.php'); ?>
